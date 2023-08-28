@@ -62,22 +62,6 @@ for issue in issues:
             cleaned_issue["fields"] = cleaned_fields
         else:
             cleaned_issue[issue_field] = issue[issue_field]
-    res = es.index(index="jira-fields-1", doc_type='jira-fields-1', body=cleaned_issue, id = cleaned_issue["key"],
+    res = es.index(index="jira-fields", doc_type='jira-fields', body=cleaned_issue, id = cleaned_issue["key"],
                                   request_timeout=30);
     cleaned_issues.append(cleaned_issue)
-
-# print("Cleaned Issues : " + json.dumps(cleaned_issues))
-
-
-# for f in fields:
-#     if 'customfield_' not in f:
-#         processed_fields[f] = fields[f]
-#         # print(processed_fields)
-# utc_time_str = str(dt.utcnow())
-# processed_fields['processedTime'] = utc_time_str
-# tickets_json = json.dumps(processed_fields)
-# print("Tickets JSON Without Custom Fields : " + tickets_json)
-#
-#     # DATA PUSH : Use New Index name and doc_type according to your requirements.
-# res = es.index(index="jira-fields", doc_type='jira-fields', body=processed_fields,
-#                request_timeout=30);
