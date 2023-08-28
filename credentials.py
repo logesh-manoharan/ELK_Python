@@ -1,2 +1,2 @@
 ntid = "lmanoh572"
-pwd = "<NTID_PASSWORD>"
+pwd = "Mdhoni@7Mdhoni@7"
